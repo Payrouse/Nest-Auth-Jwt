@@ -6,7 +6,7 @@ export const AppDataSource = new DataSource({
   port: 5432,
   username: 'postgres',
   password: '1234',
-  database: 'db_nest_typeorm',
+  database: 'db_nest_auth',
   synchronize: false,
   logging: true,
   entities: ['./src/**/*.entity.ts'],
