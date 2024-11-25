@@ -13,8 +13,8 @@ async function bootstrap() {
       transformOptions: { enableImplicitConversion: true },
     }),
   );
-  app.enableCors();
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('API')
     .setDescription('Platzi store')
@@ -22,7 +22,6 @@ async function bootstrap() {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, documentFactory);
-  app.enableCors();
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
